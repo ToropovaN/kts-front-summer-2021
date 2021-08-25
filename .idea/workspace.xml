@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50214b08-7f56-4dd6-92d2-170aa7fba3ce" name="Changes" comment="" />
+    <list default="true" id="50214b08-7f56-4dd6-92d2-170aa7fba3ce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/root.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/root.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/ApiStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/store/ApiStore/ApiStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/store/ApiStore/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +44,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="terminal" />
-    <property name="ts.external.directory.path" value="C:\Users\ponka\my-first-app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -63,6 +71,10 @@
       <workItem from="1629456230013" duration="2151000" />
       <workItem from="1629458419926" duration="57079000" />
       <workItem from="1629568063713" duration="13081000" />
+      <workItem from="1629583262055" duration="1120000" />
+      <workItem from="1629625963066" duration="1805000" />
+      <workItem from="1629820942077" duration="11296000" />
+      <workItem from="1629878943329" duration="6652000" />
     </task>
     <servers />
   </component>

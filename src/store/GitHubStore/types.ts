@@ -1,3 +1,5 @@
+import { ApiResponse } from "../../shared/store/ApiStore/types"
+
 /** Интерфейс класса для работы с GitHub API
  * названия getOrganizationReposList
  * (а также типов GetOrganizationReposListParams и RepoItem)
@@ -9,8 +11,6 @@ export type GetOrganizationReposListParams = {
     organizationName : string
 }
 
-export type ApiResp<T> = {}
-
 export type RepoItem = {
     id : number,
     name : string,
@@ -19,5 +19,5 @@ export type RepoItem = {
 }
 
 export interface IGitHubStore {
-    getOrganizationReposList(params: GetOrganizationReposListParams): Promise<ApiResp<RepoItem[]>>;
+    getOrganizationReposList(params: GetOrganizationReposListParams): Promise<ApiResponse<RepoItem[], null>>;
 }

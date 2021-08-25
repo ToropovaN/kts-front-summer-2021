@@ -1,4 +1,4 @@
-import {ApiResponse, IApiStore, RequestParams} from "./types";
+import {ApiResponse, HTTPMethod, IApiStore, RequestParams} from "./types";
 var qs = require('qs');
 
 export default class ApiStore implements IApiStore {
@@ -8,16 +8,37 @@ export default class ApiStore implements IApiStore {
     }
 
     async request<SuccessT, ErrorT = any, ReqT = {}>(params: RequestParams<ReqT>): Promise<ApiResponse<SuccessT, ErrorT>> {
-        let url = this.baseUrl + params.endpoint + qs.stringify(params.data);
-        const response = await fetch(url, {
-            method: params.method,
-            headers: params.headers
-        })
-        const result : ApiResponse<SuccessT, ErrorT> = {
-            success: response.ok,
-            data: await response.json(),
-            status: response.status
+        let newUrl = this.baseUrl + params.endpoint;
+        let newHeaders = params.headers;
+        let newBody = null;
+
+        if (params.method === HTTPMethod.GET) {
+            newUrl = newUrl + qs.stringify(params.data);
         }
-        return result
+        else if (params.method === HTTPMethod.POST){
+            newBody = JSON.stringify(params.data)
+            newHeaders['Content-Type'] = 'application/json'
+        }
+        try {
+            const response = await fetch(newUrl, {
+                method: params.method,
+                headers: newHeaders,
+                body: newBody
+            })
+            const result : ApiResponse<SuccessT, ErrorT> = {
+                success: response.ok,
+                data: await response.json(),
+                status: response.status
+            }
+            return result;
+        }
+        catch (e) {
+            return {
+                success: false,
+                data: null,
+                status: "UNEXPECTED_ERROR"
+            }
+
+        }
     }
 }
