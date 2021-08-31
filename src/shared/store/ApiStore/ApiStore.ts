@@ -25,12 +25,11 @@ export default class ApiStore implements IApiStore {
                 headers: newHeaders,
                 body: newBody
             })
-            const result : ApiResponse<SuccessT, ErrorT> = {
+            return  {
                 success: response.ok,
                 data: await response.json(),
                 status: response.status
             }
-            return result;
         }
         catch (e) {
             return {

@@ -42,7 +42,7 @@ export type ApiResponse<SuccessT, ErrorT> =
     | {
     success: false;
     data: null;
-    status: string;
+    status: 'UNEXPECTED_ERROR'
 };
 
 // Интерфейс для класса, с помощью которого можно делать запросы к API
