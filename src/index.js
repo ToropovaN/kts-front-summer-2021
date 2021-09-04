@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import root from "./root/root.ts";
+//import root from "./root/root";
 
 ReactDOM.render(
   <React.StrictMode>
