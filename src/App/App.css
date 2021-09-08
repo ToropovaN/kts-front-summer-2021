@@ -1,0 +1,47 @@
+:root {
+  --colorHint: #7e7e7e;
+  --colorDefault: #000000;
+  --colorBorder: #d9d9d9;
+  --colorAccent: #ff5555;
+  --colorBackground: #ffffff;
+  --colorStar: #ff9432;
+  --colorLinkHover: #208fbf;
+  --colorDisabled: #f9f9f9;
+
+  --sizeAvatar: 80px;
+  --sizeRadius: 6px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+.page {
+  width: 55vw;
+  min-width: 397px;
+  margin: auto;
+  box-shadow: 0px 2px 6px rgba(182, 182, 182, 0.25);
+}
+.page__search {
+  background-color: var(--colorBackground);
+  z-index: 1;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+}
+
+.page__list {
+}
+.list {
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: 20px;
+  padding: 0 20px 20px 20px;
+}
+
+.list__card {
+}

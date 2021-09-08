@@ -1,17 +1,22 @@
 // Здесь необходимо продемонстрировать создание и использование GitHubStore
-import GitHubStore from '../store/GitHubStore/GitHubStore';
+import { RepoItem } from "src/store/GitHubStore/types";
+import GitHubStore from "../store/GitHubStore/GitHubStore";
 
-function root() {
+const root = (orgName: string) => {
   const gitHubStore = new GitHubStore();
+  let rootResult: RepoItem[] = [];
+  //const EXAMPLE_ORGANIZATION = "ktsstudio";
+  gitHubStore
+    .getOrganizationReposList({
+      organizationName: orgName,
+    })
+    .then((result) => {
+      //eslint-disable-next-line no-console
+      console.log(result); // в консоли появится список репозиториев в ktsstudio
+      if (result.data) rootResult = result.data;
+    });
+  return rootResult;
+};
 
-  const EXAMPLE_ORGANIZATION = 'ktsstudio';
-
-  gitHubStore.getOrganizationReposList({
-    organizationName: EXAMPLE_ORGANIZATION
-  }).then(result => {
-    console.log(result); // в консоли появится список репозиториев в ktsstudio
-  })
-
-}
-export default root();
+export default root("");
 // В ДЗ 1 Не требуется визуально в разметке отображать результат запроса к сети. Достаточно вывести в console.log

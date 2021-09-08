@@ -1,4 +1,4 @@
-import { ApiResponse } from "../../shared/store/ApiStore/types"
+import {ApiResponse} from "../../shared/store/ApiStore/types"
 
 /** Интерфейс класса для работы с GitHub API
  * названия getOrganizationReposList
@@ -8,14 +8,20 @@ import { ApiResponse } from "../../shared/store/ApiStore/types"
  * Выберите любой запрос из публичного API GitHub.
  */
 export type GetOrganizationReposListParams = {
-    organizationName : string
+    organizationName: string
 }
 
 export type RepoItem = {
-    id : number,
-    name : string,
-    full_name : string,
-    private: boolean
+    id: number,
+    name: string,
+    owner: {
+        login: string,
+        url: string,
+        avatar_url?: string
+    },
+    html_url: string,
+    stargazers_count: number,
+    updated_at: string
 }
 
 export interface IGitHubStore {
