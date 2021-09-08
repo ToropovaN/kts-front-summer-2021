@@ -23,7 +23,7 @@ const RepoTile: React.FC<repoTileProps> = ({ item, onClick }) => {
     <div className="list__card card" onClick={onClick}>
       <Avatar
         avatar_url={item.owner.avatar_url ? item.owner.avatar_url : ""}
-        name={item.name}
+        name={item.name[0]}
       />
       <div className="card__content">
         <div className="card__title">{item.name}</div>

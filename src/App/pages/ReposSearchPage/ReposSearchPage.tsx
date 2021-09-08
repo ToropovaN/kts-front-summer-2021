@@ -5,67 +5,43 @@ import Search from "@components/Search/Search";
 import { RepoItem } from "src/store/GitHubStore/types";
 
 import root from "../../../root/root";
-
-const testRepo: RepoItem = {
-  id: 25694602,
-  name: "notific",
-  owner: {
-    login: "ktsstudio",
-    url: "https://github.com/ktsstudio",
-    avatar_url: "https://avatars.githubusercontent.com/u/14364638?v=4",
-  },
-  html_url: "https://github.com/ktsstudio/notific",
-  stargazers_count: 2,
-  updated_at: "2021-02-02T18:15:15Z",
-};
-
-type searchStateType = {
-  inputValue: string;
-  isLoading: boolean;
-  repoList: RepoItem[];
-};
+import GitHubStore from "../../../store/GitHubStore/GitHubStore";
 
 const ReposSearchPage = () => {
   const onClick = () => alert("click!");
 
-  let startState: searchStateType = {
-    inputValue: "",
-    isLoading: false,
-    repoList: [],
-  };
+  const [value, setValue] = React.useState<string>("");
+  const [repos, setRepos] = React.useState<RepoItem[]>([]);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
-  const [searchState, setSearchState] = React.useState(startState);
-
-  const setInputValue = (newValue: string) => {
-    let newData = sendRequest(newValue);
-    setSearchState({
-      inputValue: newValue,
-      isLoading: true,
-      repoList: newValue === "" ? [] : newData,
-    });
-  };
-
-  const sendRequest = (value: string) => {
-    /*TODO: получить результаты root(value). как?...*/
-    return [testRepo]; //как будто что-то пришло
-  };
-
-  const renderRepos = () => {
-    return searchState.repoList.map((repo) => (
-      <RepoTile key={repo.id} item={repo} onClick={onClick} />
-    ));
-  };
+  React.useEffect(() => {
+    if (value !== "") {
+      setIsLoading(true);
+      const gitHubStore = new GitHubStore();
+      gitHubStore
+        .getOrganizationReposList({
+          organizationName: value,
+        })
+        .then((result) => {
+          if (result.status === 200 && result.data !== null) {
+            setRepos(result.data);
+          }
+        });
+      setIsLoading(false);
+    } else setRepos([]);
+  }, [value]);
 
   return (
     <div className="page">
       <Search
-        inputProps={{
-          placeholder: "Введите название организации",
-          stateUpdate: setInputValue,
-        }}
+        placeholder={"Введите название организации"}
+        value={value}
+        stateUpdate={setValue}
       />
       <div className="page__list list">
-        {searchState.repoList && renderRepos()}
+        {repos.map((repo) => (
+          <RepoTile key={repo.id} item={repo} onClick={onClick} />
+        ))}
       </div>
     </div>
   );

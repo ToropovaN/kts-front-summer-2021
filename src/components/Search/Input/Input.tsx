@@ -1,12 +1,9 @@
 import React from "react";
 
-export type inputProps = {
-  placeholder: string;
-  stateUpdate: any; //?
-};
+import { SearchProps } from "../Search";
 
-const Input: React.FC<inputProps> = ({ placeholder, stateUpdate }) => {
-  const [inputValue, setInputValue] = React.useState("");
+const Input: React.FC<SearchProps> = ({ placeholder, stateUpdate, value }) => {
+  const [inputValue, setInputValue] = React.useState(value);
 
   return (
     <input
