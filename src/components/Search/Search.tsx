@@ -1,7 +1,10 @@
+// @ts-ignore
+import appStyles from "../../App/App.module.scss";
 import Button from "./Button/Button";
 import Input from "./Input/Input";
+// @ts-ignore
+import styles from "./Search.module.scss";
 import SearchIcon from "./SearchIcon/SearchIcon";
-import "./Search.css";
 
 export type SearchProps = {
   placeholder: string;
@@ -16,7 +19,7 @@ const Search: React.FC<SearchProps> = ({
   value,
   isButtonDisabled = false,
 }) => (
-  <div className="page__search search">
+  <div className={`${styles.search} ${appStyles.page__search}`}>
     <Input placeholder={placeholder} value={value} stateUpdate={stateUpdate} />
     <Button disabled={isButtonDisabled}>
       {" "}

@@ -1,48 +1,51 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import RepoTile from "@components/RepoTile/RepoTile";
 import Search from "@components/Search/Search";
-import { RepoItem } from "src/store/GitHubStore/types";
+import { useHistory } from "react-router-dom";
 
-import root from "../../../root/root";
 import GitHubStore from "../../../store/GitHubStore/GitHubStore";
+import { RepoItem } from "../../../store/GitHubStore/types";
+import { useReposContext } from "../../App";
+// @ts-ignore
+import styles from "../../App.module.scss";
 
 const ReposSearchPage = () => {
-  const onClick = () => alert("click!");
+  const history = useHistory();
+  const onClick = (id: number) => {
+    history.push("/repos/" + id);
+  };
 
   const [value, setValue] = React.useState<string>("");
-  const [repos, setRepos] = React.useState<RepoItem[]>([]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const reposContext = useReposContext();
 
   React.useEffect(() => {
-    if (value !== "") {
-      setIsLoading(true);
-      const gitHubStore = new GitHubStore();
-      gitHubStore
-        .getOrganizationReposList({
-          organizationName: value,
-        })
-        .then((result) => {
-          if (result.status === 200 && result.data !== null) {
-            setRepos(result.data);
-          }
-        });
-      setIsLoading(false);
-    } else setRepos([]);
+    reposContext.setValue(value);
   }, [value]);
 
   return (
-    <div className="page">
+    <div className={styles.page}>
       <Search
         placeholder={"Введите название организации"}
         value={value}
         stateUpdate={setValue}
       />
-      <div className="page__list list">
-        {repos.map((repo) => (
-          <RepoTile key={repo.id} item={repo} onClick={onClick} />
-        ))}
-      </div>
+      {reposContext.list.length > 0 && (
+        <div className={`${styles.page__list} ${styles.list}`}>
+          {reposContext.list.map((repo) => (
+            <RepoTile
+              key={repo.id}
+              item={repo}
+              onClick={() => {
+                onClick(repo.id);
+              }}
+            />
+          ))}
+          {reposContext.list.length >= 10 && (
+            <div className={styles.list__showMore}>Show more</div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

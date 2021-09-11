@@ -1,6 +1,8 @@
 import React from "react";
 
 import { SearchProps } from "../Search";
+// @ts-ignore
+import styles from "../Search.module.scss";
 
 const Input: React.FC<SearchProps> = ({ placeholder, stateUpdate, value }) => {
   const [inputValue, setInputValue] = React.useState(value);
@@ -8,7 +10,7 @@ const Input: React.FC<SearchProps> = ({ placeholder, stateUpdate, value }) => {
   return (
     <input
       type="text"
-      className="search__input"
+      className={styles.search__input}
       placeholder={placeholder}
       value={inputValue}
       onChange={(event) => {

@@ -1,0 +1,76 @@
+@import "src/variables";
+
+.card {
+  line-height: 1.6;
+  padding: 12px;
+  grid-column-gap: 12px;
+  overflow: hidden;
+  background: $colorBackground;
+  color: $colorHint;
+  border: 1px solid $colorBorder;
+  border-radius: $sizeRadius;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+
+  &:hover {
+    box-shadow: 0px 2px 6px rgba(182, 182, 182, 0.25);
+    transition: 0.2s;
+    cursor: pointer;
+  }
+
+  &__avatar {
+    position: relative;
+    width: $sizeAvatar;
+    height: $sizeAvatar;
+    border-radius: 50%;
+    background-color: $colorAccent;
+    color: $colorBackground;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  &__img {
+    position: absolute;
+    width: 100%;
+  }
+  &__letter {
+    text-align: center;
+    line-height: $sizeAvatar;
+    font-size: 40px;
+  }
+  &__content {
+    overflow: hidden;
+    flex-grow: 1;
+  }
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $colorDefault;
+    font-weight: bold;
+  }
+  &__author {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      transition: 0.2s;
+      color: $colorLinkHover;
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    display: flex;
+  }
+  &__stars {
+  }
+  &__star-icon {
+    font-size: 13px;
+    vertical-align: middle;
+    color: $colorStar;
+  }
+  &__data {
+    margin-left: 25px;
+  }
+}
