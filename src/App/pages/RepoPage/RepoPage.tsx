@@ -1,48 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import RepoTile from "@components/RepoTile";
 import { useParams } from "react-router-dom";
 
 import repoTileStyles from "../../../components/RepoTile/RepoTile.module.scss";
 import GitHubStore from "../../../store/GitHubStore";
-import { ExtendedRepoItem } from "../../../store/GitHubStore/types";
+import { RepoItem } from "../../../store/GitHubStore/types";
 import { getPrettyDate } from "../../../utils";
+import { useReposContext } from "../../App";
 // @ts-ignore
 import appStyles from "../../App.module.scss";
 import styles from "./RepoPage.module.scss";
 
 const RepoPage = () => {
-  const testRepo: ExtendedRepoItem = {
+  const testRepo: RepoItem = {
     id: 0,
-    name: "name",
+    name: "•••",
     owner: {
-      login: "login",
-      html_url: "html_url",
+      login: "•••",
+      html_url: "",
     },
     html_url: "",
     stargazers_count: 0,
     updated_at: "1111-01-01",
     created_at: "1111-01-01",
     private: false,
-    description: "description",
-    language: "language",
+    description: "•••",
+    language: "•••",
   };
 
-  const [currentRepo, setCurrentRepo] = useState<ExtendedRepoItem>(testRepo);
-
+  const [currentRepo, setCurrentRepo] = useState<RepoItem>(testRepo);
   const { id } = useParams<{ id: string }>();
+  const reposContext = useReposContext();
 
   React.useEffect(() => {
-    const gitHubStore = new GitHubStore();
-    gitHubStore
-      .getOneRepo({
-        repoId: id,
-      })
-      .then((result) => {
-        if (result.status === 200 && result.data !== null) {
-          setCurrentRepo(result.data);
-        }
-      });
+    const searchInContext = reposContext.list.filter(
+      (repo) => repo.id.toString() === id
+    );
+    if (searchInContext.length) {
+      setCurrentRepo(searchInContext[0]);
+    } else {
+      const gitHubStore = new GitHubStore();
+      gitHubStore
+        .getOneRepo({
+          repoId: id,
+        })
+        .then((result) => {
+          if (result.status === 200 && result.data !== null) {
+            setCurrentRepo(result.data);
+          }
+        });
+    }
   }, [id]);
 
   return (
@@ -91,7 +98,7 @@ const RepoPage = () => {
               Language:
             </div>
             <div className={styles.repoInfo__infoValue}>
-              {currentRepo.language ? currentRepo.language : "..."}
+              {currentRepo.language ? currentRepo.language : "•••"}
             </div>
           </div>
           <div>

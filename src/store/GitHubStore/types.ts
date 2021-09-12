@@ -27,10 +27,7 @@ export type RepoItem = {
     },
     html_url: string,
     stargazers_count: number,
-    updated_at: string
-}
-
-export type ExtendedRepoItem =  RepoItem & {
+    updated_at: string,
     "private": boolean,
     "description": string,
     "language": string,

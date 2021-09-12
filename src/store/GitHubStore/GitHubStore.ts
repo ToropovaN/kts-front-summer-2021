@@ -6,7 +6,6 @@ import {
   GetOrganizationReposListParams,
   RepoItem,
   GetOneRepoParams,
-  ExtendedRepoItem,
 } from "./types";
 
 export default class GitHubStore implements IGitHubStore {
@@ -26,7 +25,7 @@ export default class GitHubStore implements IGitHubStore {
 
   async getOneRepo(
     params: GetOneRepoParams
-  ): Promise<ApiResponse<ExtendedRepoItem, null>> {
+  ): Promise<ApiResponse<RepoItem, null>> {
     return await this.apiStore.request({
       method: HTTPMethod.GET,
       endpoint: `/repositories/${params.repoId}`,

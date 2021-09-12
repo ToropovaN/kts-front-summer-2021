@@ -1,11 +1,13 @@
 import React from "react";
 
+import { useReposContext } from "../../../App/App";
 import { SearchProps } from "../Search";
 // @ts-ignore
 import styles from "../Search.module.scss";
 
-const Input: React.FC<SearchProps> = ({ placeholder, stateUpdate, value }) => {
-  const [inputValue, setInputValue] = React.useState(value);
+const Input: React.FC<SearchProps> = ({ placeholder }) => {
+  const reposContext = useReposContext();
+  const [inputValue, setInputValue] = React.useState(reposContext.value);
 
   return (
     <input
@@ -15,7 +17,8 @@ const Input: React.FC<SearchProps> = ({ placeholder, stateUpdate, value }) => {
       value={inputValue}
       onChange={(event) => {
         setInputValue(event.target.value);
-        stateUpdate(event.target.value);
+        if (event.target.value !== reposContext.value)
+          reposContext.setValue(event.target.value);
       }}
     />
   );

@@ -9,12 +9,14 @@ import RepoPage from "./pages/RepoPage";
 import ReposSearchPage from "./pages/ReposSearchPage";
 
 export type ReposContextProps = {
+  value: string;
   setValue: any;
   list: RepoItem[];
   isLoading: boolean;
-  load: () => void;
+  load: (isValueUpdated: boolean) => void;
 };
 const defaultReposContextProps: ReposContextProps = {
+  value: "",
   setValue: () => {},
   list: [],
   isLoading: false,
@@ -24,43 +26,55 @@ const ReposContext = createContext<ReposContextProps>(defaultReposContextProps);
 export const useReposContext = () => useContext(ReposContext);
 const ReposContextProvider = ReposContext.Provider;
 
+export const per_page: number = 10;
+
 function App() {
   const [contextValue, setcontextValue] = React.useState<string>("");
   const [contextRepos, setContextRepos] = React.useState<RepoItem[]>([]);
   const [contextIsLoading, setcontextIsLoading] =
     React.useState<boolean>(false);
+  const [page, setPage] = React.useState<number>(0);
+
+  const contextLoad = (isValueUpdated: boolean) => {
+    if (isValueUpdated) {
+      if (contextValue === "") {
+        setcontextIsLoading(false);
+        return;
+      }
+      setPage(0);
+      setContextRepos([]);
+    } else setPage((prevPage) => prevPage + 1);
+  };
 
   React.useEffect(() => {
-    contextLoad();
-  }, [contextValue]);
-
-  const contextLoad = () => {
     setcontextIsLoading(true);
-    if (contextValue !== "") {
+    if (page === 0) setPage(1);
+    if (contextValue) {
       const gitHubStore = new GitHubStore();
       gitHubStore
         .getOrganizationReposList({
           organizationName: contextValue,
-          per_page: 10,
-          page: 1,
+          per_page: per_page,
+          page: page,
         })
         .then((result) => {
           if (result.status === 200 && result.data !== null) {
-            setContextRepos(result.data);
+            setContextRepos(contextRepos.concat(result.data));
           }
         });
-    } else setContextRepos([]);
+    }
     setcontextIsLoading(false);
-  };
+  }, [page]);
 
   return (
     <BrowserRouter>
       <ReposContextProvider
         value={{
+          value: contextValue,
           setValue: setcontextValue,
           list: contextRepos,
           isLoading: contextIsLoading,
-          load: () => contextLoad(),
+          load: (isValueUpdated) => contextLoad(isValueUpdated),
         }}
       >
         <Switch>

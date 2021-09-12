@@ -5,7 +5,6 @@ import styles from "../Search.module.scss";
 export type ButtonProps = {
   onClick?: (e: React.MouseEvent) => void;
   children: React.ReactNode;
-  disabled: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({ onClick, children }) => {

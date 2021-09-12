@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import RepoTile from "@components/RepoTile/RepoTile";
 import Search from "@components/Search/Search";
 import { useHistory } from "react-router-dom";
 
-import GitHubStore from "../../../store/GitHubStore/GitHubStore";
-import { RepoItem } from "../../../store/GitHubStore/types";
-import { useReposContext } from "../../App";
+import { per_page, useReposContext } from "../../App";
 // @ts-ignore
 import styles from "../../App.module.scss";
 
@@ -16,20 +14,15 @@ const ReposSearchPage = () => {
     history.push("/repos/" + id);
   };
 
-  const [value, setValue] = React.useState<string>("");
   const reposContext = useReposContext();
 
   React.useEffect(() => {
-    reposContext.setValue(value);
-  }, [value]);
+    reposContext.load(true);
+  }, [reposContext.value]);
 
   return (
     <div className={styles.page}>
-      <Search
-        placeholder={"Введите название организации"}
-        value={value}
-        stateUpdate={setValue}
-      />
+      <Search placeholder={"Введите название организации"} />
       {reposContext.list.length > 0 && (
         <div className={`${styles.page__list} ${styles.list}`}>
           {reposContext.list.map((repo) => (
@@ -41,8 +34,13 @@ const ReposSearchPage = () => {
               }}
             />
           ))}
-          {reposContext.list.length >= 10 && (
-            <div className={styles.list__showMore}>Show more</div>
+          {reposContext.list.length % per_page === 0 && (
+            <div
+              className={styles.list__showMore}
+              onClick={() => reposContext.load(false)}
+            >
+              Show more
+            </div>
           )}
         </div>
       )}
