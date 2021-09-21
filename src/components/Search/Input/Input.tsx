@@ -1,19 +1,25 @@
 import React from "react";
 
-import { SearchProps } from "../Search";
+import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
 
-const Input: React.FC<SearchProps> = ({ placeholder, stateUpdate, value }) => {
-  const [inputValue, setInputValue] = React.useState(value);
+import { SearchProps } from "../Search";
+// @ts-ignore
+import styles from "../Search.module.scss";
+
+const Input: React.FC<SearchProps> = ({ placeholder }) => {
+  const reposContext = useReposContext();
+  const [inputValue, setInputValue] = React.useState(reposContext.value);
 
   return (
     <input
       type="text"
-      className="search__input"
+      className={styles.search__input}
       placeholder={placeholder}
       value={inputValue}
       onChange={(event) => {
         setInputValue(event.target.value);
-        stateUpdate(event.target.value);
+        if (event.target.value !== reposContext.value)
+          reposContext.setValue(event.target.value);
       }}
     />
   );

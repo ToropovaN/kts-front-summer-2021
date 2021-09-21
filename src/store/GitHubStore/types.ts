@@ -8,7 +8,13 @@ import {ApiResponse} from "../../shared/store/ApiStore/types"
  * Выберите любой запрос из публичного API GitHub.
  */
 export type GetOrganizationReposListParams = {
-    organizationName: string
+    organizationName: string,
+    per_page: number,
+    page: number,
+}
+
+export type GetOneRepoParams = {
+    repoId: string
 }
 
 export type RepoItem = {
@@ -16,14 +22,20 @@ export type RepoItem = {
     name: string,
     owner: {
         login: string,
-        url: string,
+        html_url: string,
         avatar_url?: string
     },
     html_url: string,
     stargazers_count: number,
-    updated_at: string
+    updated_at: string,
+    "private": boolean,
+    "description": string,
+    "language": string,
+    "created_at": string,
 }
 
 export interface IGitHubStore {
     getOrganizationReposList(params: GetOrganizationReposListParams): Promise<ApiResponse<RepoItem[], null>>;
+    getOneRepo(params: GetOneRepoParams): Promise<ApiResponse<RepoItem, null>>;
+
 }

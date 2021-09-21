@@ -1,28 +1,25 @@
+// @ts-ignore
+import indexStyles from "../../index.module.scss";
 import Button from "./Button/Button";
 import Input from "./Input/Input";
+// @ts-ignore
+import styles from "./Search.module.scss";
 import SearchIcon from "./SearchIcon/SearchIcon";
-import "./Search.css";
 
 export type SearchProps = {
   placeholder: string;
-  value: string;
-  stateUpdate: (value: string) => void;
-  isButtonDisabled?: boolean;
 };
 
-const Search: React.FC<SearchProps> = ({
-  placeholder,
-  stateUpdate,
-  value,
-  isButtonDisabled = false,
-}) => (
-  <div className="page__search search">
-    <Input placeholder={placeholder} value={value} stateUpdate={stateUpdate} />
-    <Button disabled={isButtonDisabled}>
-      {" "}
-      <SearchIcon />{" "}
-    </Button>
-  </div>
-);
+const Search: React.FC<SearchProps> = ({ placeholder }) => {
+  return (
+    <div className={`${styles.search} ${indexStyles.page__search}`}>
+      <Input placeholder={placeholder} />
+      <Button>
+        {" "}
+        <SearchIcon />{" "}
+      </Button>
+    </div>
+  );
+};
 
 export default Search;

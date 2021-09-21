@@ -1,0 +1,86 @@
+@import "src/variables";
+
+.page__repo {
+  padding: 20px;
+  margin-top: 40px;
+  color: $colorHint;
+}
+
+.repo {
+  display: flex;
+
+  &__titleBlock{
+    display: flex;
+  }
+  &__avatar{
+    width: 100px;
+    height: 100px;
+    background-color: $colorAccent;
+    flex-shrink: 0;
+    &__image{
+      width: 100%;
+      height: 100%;
+    }
+    &__letter{
+      height: 100%;
+      color: $colorBackground;
+      font-size: $sizeLetter;
+      text-align: center;
+      line-height: 100px;
+    }
+  }
+  &__title{
+    margin: 0 20px;
+    overflow: hidden;
+    word-wrap: break-word;
+    position: relative;
+    text-align: center;
+    flex-grow: 1;
+  }
+  &__repoBy{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+  }
+  &__repoName{
+    padding-bottom: 10px;
+  }
+  &__repoDescription{
+    margin: 20px 0;
+    padding: 10px 0;
+  }
+  &__repoDateInfo{
+    padding-top: 20px;
+  }
+}
+
+.repoDescription{
+  text-align: center;
+  border-bottom: 1px solid $colorBorder;
+  border-top: 1px solid $colorBorder;
+}
+.repoInfo{
+  line-height: 2;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  &__title{
+    color: $colorBackground;
+    border-radius: $sizeRadius $sizeRadius 0 0;
+    &__language{ background-color: $colorAccent}
+    &__stars{ background-color: $colorStar}
+    &__private{ background-color: $colorHint}
+  }
+  &__infoValue{
+    border: 1px solid $colorBorder;
+    border-top: none;
+    border-radius: 0 0 $sizeRadius $sizeRadius;
+  }
+}
+.repoDateInfo{
+  display: flex;
+  justify-content: end;
+}

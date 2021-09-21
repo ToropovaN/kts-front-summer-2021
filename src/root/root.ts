@@ -9,6 +9,8 @@ const root = (orgName: string) => {
   gitHubStore
     .getOrganizationReposList({
       organizationName: orgName,
+      page: 1,
+      per_page: 10,
     })
     .then((result) => {
       //eslint-disable-next-line no-console

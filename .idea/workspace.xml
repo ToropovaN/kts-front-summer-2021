@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50214b08-7f56-4dd6-92d2-170aa7fba3ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/pages/RepoPage/RepoPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/pages/RepoPage/RepoPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RepoTile/Avatar/Avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RepoTile/Avatar/Avatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RepoTile/RepoTile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RepoTile/RepoTile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Search/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Button/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Search/Input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Input/Input.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Search/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +95,7 @@
       <workItem from="1630653446874" duration="35484000" />
       <workItem from="1630743258031" duration="8943000" />
       <workItem from="1631114202317" duration="1882000" />
+      <workItem from="1631432630502" duration="16742000" />
     </task>
     <servers />
   </component>

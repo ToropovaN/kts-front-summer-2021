@@ -1,12 +1,9 @@
-import ReposSearchPage from "./pages/ReposSearchPage";
-import "./App.css";
+import React from "react";
+
+import RepoListProvider from "@components/RepoListProvider/RepoListProvider";
 
 function App() {
-  return (
-    <div className="App">
-      <ReposSearchPage />
-    </div>
-  );
+  return <RepoListProvider />;
 }
 
 export default App;

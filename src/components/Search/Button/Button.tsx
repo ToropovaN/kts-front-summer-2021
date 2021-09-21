@@ -1,12 +1,21 @@
+import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
+// @ts-ignore
+
+import styles from "../Search.module.scss";
+
 export type ButtonProps = {
   onClick?: (e: React.MouseEvent) => void;
   children: React.ReactNode;
-  disabled: boolean;
 };
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, disabled }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
+  const reposContext = useReposContext();
   return (
-    <button className="search__button" onClick={onClick} disabled={disabled}>
+    <button
+      className={styles.search__button}
+      onClick={onClick}
+      disabled={reposContext.isLoading}
+    >
       {children}
     </button>
   );
