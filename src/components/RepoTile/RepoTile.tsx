@@ -1,8 +1,6 @@
+import { getPrettyDate } from "@utils/getPrettyDate";
 import { RepoItem } from "src/store/GitHubStore/types";
 
-// @ts-ignore
-import appStyles from "../../App/App.module.scss";
-import { getPrettyDate } from "../../utils";
 import Avatar from "./Avatar/Avatar";
 // @ts-ignore
 import styles from "./RepoTile.module.scss";
@@ -15,7 +13,7 @@ type repoTileProps = {
 
 const RepoTile: React.FC<repoTileProps> = ({ item, onClick }) => {
   return (
-    <div className={`${styles.card} ${appStyles.list__card}`} onClick={onClick}>
+    <div className={styles.card} onClick={onClick}>
       <Avatar
         avatar_url={item.owner.avatar_url ? item.owner.avatar_url : ""}
         name={item.name[0]}
@@ -26,7 +24,7 @@ const RepoTile: React.FC<repoTileProps> = ({ item, onClick }) => {
           {item.owner.login}
         </a>
         <div className={styles.card__info}>
-          <div className={styles.card__stars}>
+          <div>
             <StarIcon /> {item.stargazers_count}
           </div>
           <div className={styles.card__data}>

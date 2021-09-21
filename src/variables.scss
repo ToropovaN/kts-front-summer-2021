@@ -1,11 +1,34 @@
-$colorHint: #7e7e7e;
-$colorDefault: #000000;
-$colorBorder: #d9d9d9;
-$colorAccent: #ff5555;
-$colorBackground: #ffffff;
-$colorStar: #ff9432;
-$colorLinkHover: #208fbf;
-$colorDisabled: #f9f9f9;
+:root {
+  --colorHint: #7e7e7e;
+  --colorDefault: #000000;
+  --colorBorder: #d9d9d9;
+  --colorAccent: #ff5555;
+  --colorBackground: #ffffff;
+  --colorStar: #ff9432;
+  --colorLinkHover: #208fbf;
+  --colorDisabled: #f9f9f9;
 
-$sizeAvatar: 80px;
-$sizeRadius: 6px;
+  --sizeAvatar: 80px;
+  --sizeRadius: 6px;
+  --sizeFont: 14px;
+  --sizeLetter: 40px;
+
+  --boxShadow: 0px 2px 6px rgba(182, 182, 182, 0.25);
+}
+
+
+$colorHint: var(--colorHint);
+$colorDefault: var(--colorDefault);
+$colorBorder: var(--colorBorder);
+$colorAccent: var(--colorAccent);
+$colorBackground: var(--colorBackground);
+$colorStar: var(--colorStar);
+$colorLinkHover: var(--colorLinkHover);
+$colorDisabled: var(--colorDisabled);
+
+$sizeAvatar: var(--sizeAvatar);
+$sizeRadius: var(--sizeRadius);
+$sizeFont: var(--sizeFont);
+$sizeLetter: var(--sizeLetter);
+
+$boxShadow: var(--boxShadow);

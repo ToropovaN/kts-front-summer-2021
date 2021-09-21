@@ -1,17 +1,25 @@
 @import "src/variables";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: $sizeFont;
 }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 .page {
   width: 55vw;
   min-width: 397px;
   margin: auto;
-  box-shadow: 0px 2px 6px rgba(182, 182, 182, 0.25);
+  box-shadow: $boxShadow;
 
   &__search {
     background-color: $colorBackground;
@@ -20,7 +28,6 @@ body {
     position: sticky;
     top: 0;
   }
-  &__list {  }
 }
 
 .list {
@@ -29,8 +36,6 @@ body {
   grid-row-gap: 20px;
   padding: 0 20px 20px 20px;
 
-  &__card {
-  }
   &__showMore{
     margin: 0 auto;
     padding: 12px 30px;

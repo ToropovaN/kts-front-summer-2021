@@ -1,6 +1,7 @@
 import React from "react";
 
-import { useReposContext } from "../../../App/App";
+import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
+
 import { SearchProps } from "../Search";
 // @ts-ignore
 import styles from "../Search.module.scss";

@@ -1,12 +1,15 @@
 import React from "react";
 
+import {
+  per_page,
+  useReposContext,
+} from "@components/RepoListProvider/RepoListProvider";
 import RepoTile from "@components/RepoTile/RepoTile";
 import Search from "@components/Search/Search";
 import { useHistory } from "react-router-dom";
 
-import { per_page, useReposContext } from "../../App";
 // @ts-ignore
-import styles from "../../App.module.scss";
+import indexStyles from "../../../index.module.scss";
 
 const ReposSearchPage = () => {
   const history = useHistory();
@@ -21,10 +24,10 @@ const ReposSearchPage = () => {
   }, [reposContext.value]);
 
   return (
-    <div className={styles.page}>
+    <div className={indexStyles.page}>
       <Search placeholder={"Введите название организации"} />
       {reposContext.list.length > 0 && (
-        <div className={`${styles.page__list} ${styles.list}`}>
+        <div className={indexStyles.list}>
           {reposContext.list.map((repo) => (
             <RepoTile
               key={repo.id}
@@ -36,7 +39,7 @@ const ReposSearchPage = () => {
           ))}
           {reposContext.list.length % per_page === 0 && (
             <div
-              className={styles.list__showMore}
+              className={indexStyles.list__showMore}
               onClick={() => reposContext.load(false)}
             >
               Show more

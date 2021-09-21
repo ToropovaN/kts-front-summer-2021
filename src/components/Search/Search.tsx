@@ -1,5 +1,5 @@
 // @ts-ignore
-import appStyles from "../../App/App.module.scss";
+import indexStyles from "../../index.module.scss";
 import Button from "./Button/Button";
 import Input from "./Input/Input";
 // @ts-ignore
@@ -12,7 +12,7 @@ export type SearchProps = {
 
 const Search: React.FC<SearchProps> = ({ placeholder }) => {
   return (
-    <div className={`${styles.search} ${appStyles.page__search}`}>
+    <div className={`${styles.search} ${indexStyles.page__search}`}>
       <Input placeholder={placeholder} />
       <Button>
         {" "}

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
+import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
+import repoTileStyles from "@components/RepoTile/RepoTile.module.scss";
+import GitHubStore from "@store/GitHubStore";
+import { RepoItem } from "@store/GitHubStore/types";
+import { getPrettyDate } from "@utils/getPrettyDate";
 import { useParams } from "react-router-dom";
 
-import repoTileStyles from "../../../components/RepoTile/RepoTile.module.scss";
-import GitHubStore from "../../../store/GitHubStore";
-import { RepoItem } from "../../../store/GitHubStore/types";
-import { getPrettyDate } from "../../../utils";
-import { useReposContext } from "../../App";
 // @ts-ignore
-import appStyles from "../../App.module.scss";
+import indexStyles from "../../../index.module.scss";
 import styles from "./RepoPage.module.scss";
 
 const RepoPage = () => {
@@ -53,8 +53,8 @@ const RepoPage = () => {
   }, [id]);
 
   return (
-    <div className={appStyles.page}>
-      <div className={`${appStyles.repo} ${styles.page__repo}`}>
+    <div className={indexStyles.page}>
+      <div className={`${indexStyles.repo} ${styles.page__repo}`}>
         <div className={styles.repo__titleBlock}>
           <div className={styles.repo__avatar}>
             {currentRepo.owner.avatar_url ? (

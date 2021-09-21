@@ -1,5 +1,6 @@
-import { useReposContext } from "../../../App/App";
+import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
 // @ts-ignore
+
 import styles from "../Search.module.scss";
 
 export type ButtonProps = {
