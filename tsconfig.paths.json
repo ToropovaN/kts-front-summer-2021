@@ -6,7 +6,7 @@
       "@config/*": ["src/config/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
-      "@shared/*": ["src/shared/*"],
+      "@RootStore/*": ["src/store/RootStore/*"],
       "@store/*": ["src/store/*"]
     }
   }

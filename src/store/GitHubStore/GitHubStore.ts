@@ -1,5 +1,5 @@
-import ApiStore from "@shared/store/ApiStore";
-import { HTTPMethod } from "@shared/store/ApiStore/types";
+import { HTTPMethod } from "@RootStore/ApiStore/types";
+import rootStore from "@RootStore/instance";
 import {
   RepoItemModel,
   RepoItemApi,
@@ -29,7 +29,7 @@ import {
 type PrivateFields = "_list" | "_meta";
 
 export default class GitHubStore implements IGitHubStore, ILocalStore {
-  private readonly _apiStore = new ApiStore("https://api.github.com");
+  private readonly _apiStore = rootStore.apiStore;
   private _list: CollectionModel<number, RepoItemModel> =
     getInitialCollectionModel();
   private _meta: Meta = Meta.initial;
