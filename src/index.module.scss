@@ -36,14 +36,14 @@ code {
   grid-row-gap: 20px;
   padding: 0 20px 20px 20px;
 
-  &__showMore{
+  &__showMore {
     margin: 0 auto;
     padding: 12px 30px;
     background: $colorBackground;
     color: $colorHint;
     border: 1px solid $colorBorder;
     border-radius: $sizeRadius;
-    &:hover{
+    &:hover {
       cursor: pointer;
       transition: 0.2s;
       background: $colorBorder;

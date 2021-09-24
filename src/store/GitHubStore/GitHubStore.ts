@@ -1,37 +1,109 @@
 import ApiStore from "@shared/store/ApiStore";
-import { ApiResponse, HTTPMethod } from "@shared/store/ApiStore/types";
+import { HTTPMethod } from "@shared/store/ApiStore/types";
+import {
+  RepoItemModel,
+  RepoItemApi,
+  normalizeRepoItem,
+} from "@store/models/GitHub";
+import {
+  CollectionModel,
+  getInitialCollectionModel,
+  normalizeCollection,
+} from "@store/models/shared/collection";
+import { Meta } from "@utils/meta";
+import { ILocalStore } from "@utils/useLocalStore";
+import {
+  action,
+  computed,
+  makeObservable,
+  observable,
+  runInAction,
+} from "mobx";
 
 import {
   IGitHubStore,
   GetOrganizationReposListParams,
-  RepoItem,
   GetOneRepoParams,
 } from "./types";
 
-export default class GitHubStore implements IGitHubStore {
-  private readonly apiStore = new ApiStore("https://api.github.com");
+type PrivateFields = "_list" | "_meta";
+
+export default class GitHubStore implements IGitHubStore, ILocalStore {
+  private readonly _apiStore = new ApiStore("https://api.github.com");
+  private _list: CollectionModel<number, RepoItemModel> =
+    getInitialCollectionModel();
+  private _meta: Meta = Meta.initial;
+
+  constructor() {
+    makeObservable<GitHubStore, PrivateFields>(this, {
+      _list: observable.ref,
+      list: computed,
+      _meta: observable,
+      meta: computed,
+      getOrganizationReposList: action,
+      getOneRepo: action,
+    });
+  }
+
+  get list(): CollectionModel<number, RepoItemModel> {
+    return this._list;
+  }
+
+  get meta(): Meta {
+    return this._meta;
+  }
 
   async getOrganizationReposList(
     params: GetOrganizationReposListParams
-  ): Promise<ApiResponse<RepoItem[], null>> {
-    return await this.apiStore.request({
+  ): Promise<void> {
+    this._meta = Meta.loading;
+    this._list = getInitialCollectionModel();
+    const response = await this._apiStore.request<RepoItemApi[]>({
       method: HTTPMethod.GET,
       endpoint: `/orgs/${params.organizationName}/repos?per_page=${params.per_page}&page=${params.page}`,
       data: {},
       headers: {},
     });
-    // Документация github: https://docs.github.com/en/rest/reference/repos#list-organization-repositories
+    runInAction(() => {
+      if (response.success) {
+        try {
+          const list: RepoItemModel[] = [];
+          for (const item of response.data) {
+            list.push(normalizeRepoItem(item));
+          }
+          this._meta = Meta.success;
+          this._list = normalizeCollection(list, (listItem) => listItem.id);
+          return;
+        } catch (e) {
+          this._meta = Meta.error;
+        }
+      }
+    });
   }
 
-  async getOneRepo(
-    params: GetOneRepoParams
-  ): Promise<ApiResponse<RepoItem, null>> {
-    return await this.apiStore.request({
+  async getOneRepo(params: GetOneRepoParams): Promise<void> {
+    this._meta = Meta.loading;
+    this._list = getInitialCollectionModel();
+    const response = await this._apiStore.request<RepoItemApi>({
       method: HTTPMethod.GET,
       endpoint: `/repositories/${params.repoId}`,
       data: {},
       headers: {},
     });
-    // Документация github: https://docs.github.com/en/rest/reference/repos#list-organization-repositories
+    runInAction(() => {
+      if (response.success) {
+        try {
+          const list: RepoItemModel[] = [];
+          list.push(normalizeRepoItem(response.data));
+          this._meta = Meta.success;
+          this._list = normalizeCollection(list, (listItem) => listItem.id);
+          return;
+        } catch (e) {
+          this._meta = Meta.error;
+        }
+      }
+    });
   }
+
+  destroy(): void {}
 }

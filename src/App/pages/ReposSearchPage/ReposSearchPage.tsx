@@ -1,11 +1,9 @@
 import React from "react";
 
-import {
-  per_page,
-  useReposContext,
-} from "@components/RepoListProvider/RepoListProvider";
+import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
 import RepoTile from "@components/RepoTile/RepoTile";
 import Search from "@components/Search/Search";
+import { observer } from "mobx-react-lite";
 import { useHistory } from "react-router-dom";
 
 // @ts-ignore
@@ -19,16 +17,12 @@ const ReposSearchPage = () => {
 
   const reposContext = useReposContext();
 
-  React.useEffect(() => {
-    reposContext.load(true);
-  }, [reposContext.value]);
-
   return (
     <div className={indexStyles.page}>
       <Search placeholder={"Введите название организации"} />
-      {reposContext.list.length > 0 && (
+      {reposContext.repoList.length > 0 && (
         <div className={indexStyles.list}>
-          {reposContext.list.map((repo) => (
+          {reposContext.repoList.map((repo) => (
             <RepoTile
               key={repo.id}
               item={repo}
@@ -37,10 +31,10 @@ const ReposSearchPage = () => {
               }}
             />
           ))}
-          {reposContext.list.length % per_page === 0 && (
+          {reposContext.repoList.length % reposContext.perPage === 0 && (
             <div
               className={indexStyles.list__showMore}
-              onClick={() => reposContext.load(false)}
+              onClick={() => reposContext.loadRepos(false)}
             >
               Show more
             </div>
@@ -51,4 +45,4 @@ const ReposSearchPage = () => {
   );
 };
 
-export default ReposSearchPage;
+export default observer(ReposSearchPage);
