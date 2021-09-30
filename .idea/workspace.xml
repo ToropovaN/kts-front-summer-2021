@@ -3,19 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="50214b08-7f56-4dd6-92d2-170aa7fba3ce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/pages/RepoPage/RepoPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/pages/RepoPage/RepoPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search/Input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Input/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/ApiStore.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/types.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/RootStore/RootStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RootStore/RootStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/RootStore/instance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RootStore/instance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.paths.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.paths.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/RepoTile/Avatar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/store/RootStore/hooks" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -55,6 +62,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ponka\Documents\GitHub\kts-front-summer-2021\src\store\RootStore\hooks" />
       <recent name="C:\Users\ponka\Documents\GitHub\kts-front-summer-2021\src\components\RepoTile\Avatar" />
       <recent name="C:\Users\ponka\Documents\GitHub\kts-front-summer-2021\src\components\Search\SearchIcon" />
     </key>

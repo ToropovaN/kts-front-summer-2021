@@ -1,9 +1,10 @@
 import React from "react";
 
+import configureMobX from "@config/configureMobX.ts";
 import ReactDOM from "react-dom";
 
-import "./index.module.scss";
 import App from "./App";
+import styles from "./index.module.scss";
 import reportWebVitals from "./reportWebVitals";
 //import root from "./root/root";
 

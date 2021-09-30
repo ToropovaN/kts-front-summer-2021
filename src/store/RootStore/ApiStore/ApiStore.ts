@@ -3,10 +3,7 @@ import { ApiResponse, HTTPMethod, IApiStore, RequestParams } from "./types";
 var qs = require("qs");
 
 export default class ApiStore implements IApiStore {
-  readonly baseUrl: string;
-  constructor(url: string) {
-    this.baseUrl = url;
-  }
+  readonly baseUrl: string = "https://api.github.com";
 
   async request<SuccessT, ErrorT = any, ReqT = {}>(
     params: RequestParams<ReqT>

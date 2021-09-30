@@ -1,12 +1,12 @@
 // Здесь необходимо продемонстрировать создание и использование GitHubStore
-import { RepoItem } from "src/store/GitHubStore/types";
-import GitHubStore from "../store/GitHubStore/GitHubStore";
+import { RepoItemModel } from "@store/models/GitHub";
+import GitHubStore from "@store/GitHubStore/GitHubStore";
 
 const root = (orgName: string) => {
   const gitHubStore = new GitHubStore();
-  let rootResult: RepoItem[] = [];
+  let rootResult: RepoItemModel[] = [];
   //const EXAMPLE_ORGANIZATION = "ktsstudio";
-  gitHubStore
+  /*gitHubStore
     .getOrganizationReposList({
       organizationName: orgName,
       page: 1,
@@ -16,7 +16,7 @@ const root = (orgName: string) => {
       //eslint-disable-next-line no-console
       console.log(result); // в консоли появится список репозиториев в ktsstudio
       if (result.data) rootResult = result.data;
-    });
+    });*/
   return rootResult;
 };
 

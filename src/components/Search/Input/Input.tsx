@@ -1,28 +1,25 @@
-import React from "react";
-
 import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
+import { observer } from "mobx-react-lite";
 
 import { SearchProps } from "../Search";
 // @ts-ignore
 import styles from "../Search.module.scss";
 
-const Input: React.FC<SearchProps> = ({ placeholder }) => {
-  const reposContext = useReposContext();
-  const [inputValue, setInputValue] = React.useState(reposContext.value);
+/*(event) => {
+if (reposContext.value !== event.target.value) {
+reposContext.setValue(event.target.value);*/
 
+const Input: React.FC<SearchProps> = ({ placeholder, changeValue }) => {
+  const reposContext = useReposContext();
   return (
     <input
       type="text"
       className={styles.search__input}
       placeholder={placeholder}
-      value={inputValue}
-      onChange={(event) => {
-        setInputValue(event.target.value);
-        if (event.target.value !== reposContext.value)
-          reposContext.setValue(event.target.value);
-      }}
+      value={reposContext.value}
+      onChange={(event) => changeValue(event)}
     />
   );
 };
 
-export default Input;
+export default observer(Input);

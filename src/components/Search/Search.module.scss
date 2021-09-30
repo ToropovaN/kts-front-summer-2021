@@ -1,6 +1,11 @@
 @import "src/variables";
 
 .search {
+  background-color: $colorBackground;
+  z-index: 1;
+  padding: 20px;
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: auto 50px;
   grid-template-rows: 50px;

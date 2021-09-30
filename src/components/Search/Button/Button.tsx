@@ -1,4 +1,6 @@
 import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
+import { Meta } from "@utils/meta";
+import { observer } from "mobx-react-lite";
 // @ts-ignore
 
 import styles from "../Search.module.scss";
@@ -14,11 +16,11 @@ const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
     <button
       className={styles.search__button}
       onClick={onClick}
-      disabled={reposContext.isLoading}
+      disabled={reposContext.meta === Meta.loading}
     >
       {children}
     </button>
   );
 };
 
-export default Button;
+export default observer(Button);
