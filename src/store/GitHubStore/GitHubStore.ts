@@ -67,10 +67,7 @@ export default class GitHubStore implements IGitHubStore, ILocalStore {
     runInAction(() => {
       if (response.success) {
         try {
-          const list: RepoItemModel[] = [];
-          for (const item of response.data) {
-            list.push(normalizeRepoItem(item));
-          }
+          const list = response.data.map(normalizeRepoItem);
           this._meta = Meta.success;
           this._list = normalizeCollection(list, (listItem) => listItem.id);
           return;
@@ -93,10 +90,9 @@ export default class GitHubStore implements IGitHubStore, ILocalStore {
     runInAction(() => {
       if (response.success) {
         try {
-          const list: RepoItemModel[] = [];
-          list.push(normalizeRepoItem(response.data));
+          const list = normalizeRepoItem(response.data);
           this._meta = Meta.success;
-          this._list = normalizeCollection(list, (listItem) => listItem.id);
+          this._list = normalizeCollection([list], (listItem) => listItem.id);
           return;
         } catch (e) {
           this._meta = Meta.error;

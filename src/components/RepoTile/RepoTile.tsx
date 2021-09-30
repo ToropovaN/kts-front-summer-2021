@@ -8,12 +8,12 @@ import StarIcon from "./StarIcon/StarIcon";
 
 type repoTileProps = {
   item: RepoItemModel;
-  onClick: () => void;
+  onClick: (id: number) => void;
 };
 
 const RepoTile: React.FC<repoTileProps> = ({ item, onClick }) => {
   return (
-    <div className={styles.card} onClick={onClick}>
+    <div className={styles.card} onClick={() => onClick(item.id)}>
       <Avatar
         avatar_url={item.owner.avatarUrl ? item.owner.avatarUrl : ""}
         name={item.name[0]}

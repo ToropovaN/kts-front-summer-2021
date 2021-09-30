@@ -1,5 +1,12 @@
 @import "src/variables";
 
+.page {
+  width: 55vw;
+  min-width: 397px;
+  margin: auto;
+  box-shadow: $boxShadow;
+}
+
 .page__repo {
   padding: 20px;
   margin-top: 40px;

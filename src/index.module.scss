@@ -14,39 +14,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.page {
-  width: 55vw;
-  min-width: 397px;
-  margin: auto;
-  box-shadow: $boxShadow;
-
-  &__search {
-    background-color: $colorBackground;
-    z-index: 1;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-  }
-}
-
-.list {
-  display: grid;
-  grid-template-rows: auto;
-  grid-row-gap: 20px;
-  padding: 0 20px 20px 20px;
-
-  &__showMore {
-    margin: 0 auto;
-    padding: 12px 30px;
-    background: $colorBackground;
-    color: $colorHint;
-    border: 1px solid $colorBorder;
-    border-radius: $sizeRadius;
-    &:hover {
-      cursor: pointer;
-      transition: 0.2s;
-      background: $colorBorder;
-    }
-  }
-}

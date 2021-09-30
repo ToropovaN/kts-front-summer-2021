@@ -56,17 +56,17 @@ export default class RepoListStore implements ILocalStore {
   }
 
   loadRepos(isValueUpdated: boolean) {
+    if (isValueUpdated) {
+      if (this._value === "") {
+        return;
+      } else this._page = 1;
+    } else this._page++;
+    let NewOrganizationReposListParams = {
+      organizationName: this._value,
+      per_page: this._perPage,
+      page: this._page,
+    };
     runInAction(() => {
-      if (isValueUpdated) {
-        if (this._value === "") {
-          return;
-        } else this._page = 1;
-      } else this._page++;
-      let NewOrganizationReposListParams = {
-        organizationName: this._value,
-        per_page: this._perPage,
-        page: this._page,
-      };
       this._gitHubStore
         .getOrganizationReposList(NewOrganizationReposListParams)
         .then(() => {

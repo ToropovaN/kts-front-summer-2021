@@ -6,18 +6,16 @@ import { observer } from "mobx-react-lite";
 import { useParams } from "react-router-dom";
 
 // @ts-ignore
-import indexStyles from "../../../index.module.scss";
+
 import styles from "./RepoPage.module.scss";
 
 const RepoPage = () => {
-  const reposContext = useReposContext();
   const repoItemStore = useLocalStore(() => new RepoItemStore());
   const { id } = useParams<{ id: string }>();
-  repoItemStore.setRepoList(reposContext.repoList);
   repoItemStore.setRepoId(id);
 
   return (
-    <div className={indexStyles.page}>
+    <div className={styles.page}>
       <div className={styles.page__repo}>
         <div className={styles.repo__titleBlock}>
           <div className={styles.repo__avatar}>

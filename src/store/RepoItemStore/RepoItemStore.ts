@@ -29,20 +29,18 @@ const testRepo: RepoItemModel = {
   language: "•••",
 };
 
-type PrivateFields = "_repoItem" | "_repoId" | "_repoList";
+type PrivateFields = "_repoItem" | "_repoId";
 
 export default class RepoListStore implements ILocalStore {
   private readonly _gitHubStore = new GitHubStore();
   private _repoId: string = "";
   private _repoItem: RepoItemModel = testRepo;
-  private _repoList: RepoItemModel[] = [];
 
   constructor() {
     makeObservable<RepoListStore, PrivateFields>(this, {
       _repoItem: observable,
       repoItem: computed,
       _repoId: observable,
-      _repoList: observable,
       loadRepo: action,
     });
   }
@@ -57,26 +55,16 @@ export default class RepoListStore implements ILocalStore {
       this.loadRepo();
     }
   }
-  setRepoList(listFromContext: RepoItemModel[]) {
-    this._repoList = listFromContext;
-  }
 
   get repoItem(): RepoItemModel {
     return this._repoItem;
   }
 
   loadRepo() {
+    let NewOneRepoParams = {
+      repoId: this._repoId,
+    };
     runInAction(() => {
-      const findInContext = this._repoList.filter(
-        (repo) => repo.id.toString() === this._repoId
-      );
-      if (findInContext.length) {
-        this._repoItem = findInContext[0];
-        return;
-      }
-      let NewOneRepoParams = {
-        repoId: this._repoId,
-      };
       this._gitHubStore.getOneRepo(NewOneRepoParams).then(() => {
         const list = linearizeCollection(this._gitHubStore.list);
         this._repoItem = list[0];
