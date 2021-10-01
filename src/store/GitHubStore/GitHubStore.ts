@@ -1,17 +1,17 @@
-import { HTTPMethod } from "@RootStore/ApiStore/types";
-import rootStore from "@RootStore/instance";
+import { HTTPMethod } from "store/RootStore/ApiStore/types";
+import rootStore from "store/RootStore/instance";
 import {
   RepoItemModel,
   RepoItemApi,
   normalizeRepoItem,
-} from "@store/models/GitHub";
+} from "store/models/GitHub";
 import {
   CollectionModel,
   getInitialCollectionModel,
   normalizeCollection,
-} from "@store/models/shared/collection";
-import { Meta } from "@utils/meta";
-import { ILocalStore } from "@utils/useLocalStore";
+} from "store/models/shared/collection";
+import { Meta } from "utils/meta";
+import { ILocalStore } from "utils/useLocalStore";
 import {
   action,
   computed,

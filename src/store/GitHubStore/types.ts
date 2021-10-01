@@ -1,4 +1,4 @@
-import {ApiResponse} from "@RootStore/ApiStore/types"
+import {ApiResponse} from "store/RootStore/ApiStore/types"
 
 /** Интерфейс класса для работы с GitHub API
  * названия getOrganizationReposList

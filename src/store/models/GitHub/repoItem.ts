@@ -1,4 +1,4 @@
-import { getPrettyDate } from "@utils/getPrettyDate";
+import { getPrettyDate } from "utils/getPrettyDate";
 
 export type RepoItemApi = {
   id: number;

@@ -1,6 +1,6 @@
 // Здесь необходимо продемонстрировать создание и использование GitHubStore
-import { RepoItemModel } from "@store/models/GitHub";
-import GitHubStore from "@store/GitHubStore/GitHubStore";
+import { RepoItemModel } from "store/models/GitHub";
+import GitHubStore from "store/GitHubStore/GitHubStore";
 
 const root = (orgName: string) => {
   const gitHubStore = new GitHubStore();

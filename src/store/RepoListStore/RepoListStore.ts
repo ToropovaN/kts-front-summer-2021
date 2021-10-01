@@ -1,7 +1,7 @@
-import GitHubStore from "@store/GitHubStore";
-import { RepoItemModel } from "@store/models/GitHub";
-import { linearizeCollection } from "@store/models/shared/collection";
-import { ILocalStore } from "@utils/useLocalStore";
+import GitHubStore from "store/GitHubStore";
+import { RepoItemModel } from "store/models/GitHub";
+import { linearizeCollection } from "store/models/shared/collection";
+import { ILocalStore } from "utils/useLocalStore";
 import {
   action,
   computed,

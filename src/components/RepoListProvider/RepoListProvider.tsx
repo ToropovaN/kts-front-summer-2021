@@ -1,8 +1,8 @@
 import React from "react";
 import { createContext, useContext } from "react";
 
-import RepoListStore from "@store/ReposListStore";
-import { useLocalStore } from "@utils/useLocalStore";
+import RepoListStore from "store/RepoListStore";
+import { useLocalStore } from "utils/useLocalStore";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import RepoPage from "../../App/pages/RepoPage";
