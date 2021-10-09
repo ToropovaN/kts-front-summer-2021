@@ -1,4 +1,4 @@
-import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
+import { useReposContext } from "components/RepoListProvider/RepoListProvider";
 import { observer } from "mobx-react-lite";
 
 import { SearchProps } from "../Search";

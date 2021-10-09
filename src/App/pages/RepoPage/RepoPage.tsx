@@ -1,7 +1,7 @@
-import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
-import repoTileStyles from "@components/RepoTile/RepoTile.module.scss";
-import RepoItemStore from "@store/RepoItemStore";
-import { useLocalStore } from "@utils/useLocalStore";
+import { useReposContext } from "components/RepoListProvider/RepoListProvider";
+import repoTileStyles from "components/RepoTile/RepoTile.module.scss";
+import RepoItemStore from "store/RepoItemStore";
+import { useLocalStore } from "utils/useLocalStore";
 import { observer } from "mobx-react-lite";
 import { useParams } from "react-router-dom";
 

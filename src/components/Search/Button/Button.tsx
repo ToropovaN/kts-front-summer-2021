@@ -1,5 +1,5 @@
-import { useReposContext } from "@components/RepoListProvider/RepoListProvider";
-import { Meta } from "@utils/meta";
+import { useReposContext } from "components/RepoListProvider/RepoListProvider";
+import { Meta } from "utils/meta";
 import { observer } from "mobx-react-lite";
 // @ts-ignore
 

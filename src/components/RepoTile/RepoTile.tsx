@@ -1,4 +1,4 @@
-import { RepoItemModel } from "@store/models/GitHub";
+import { RepoItemModel } from "store/models/GitHub";
 import { observer } from "mobx-react-lite";
 
 import Avatar from "./Avatar/Avatar";
