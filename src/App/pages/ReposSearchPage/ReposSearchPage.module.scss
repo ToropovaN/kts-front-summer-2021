@@ -34,4 +34,15 @@
       background: $colorBorder;
     }
   }
+  &__label{
+    text-align: center;
+    border-bottom: 1px solid $colorBorder;
+    line-height: 0.1em;
+    margin: 10px 0;
+    &content{
+      background: $colorBackground;
+      color: $colorHint;
+      padding: 0 10px;
+    }
+  }
 }

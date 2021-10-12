@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50214b08-7f56-4dd6-92d2-170aa7fba3ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/Loader.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/Loader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/ApiStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/store/ApiStore/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/pages/RepoPage/RepoPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/pages/RepoPage/RepoPage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/pages/ReposSearchPage/ReposSearchPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/GitHubStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/GitHubStore/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/RootStore/RootStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RootStore/RootStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/RootStore/instance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RootStore/instance.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.paths.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.paths.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/RepoListStore/RepoListStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RepoListStore/RepoListStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\ponka\Documents\GitHub\kts-front-summer-2021\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\ponka\Documents\GitHub\kts-front-summer-2021\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">

@@ -54,13 +54,14 @@ export default class GitHubStore implements IGitHubStore, ILocalStore {
   }
 
   async getOrganizationReposList(
-    params: GetOrganizationReposListParams
+    params: GetOrganizationReposListParams | null
   ): Promise<void> {
     this._meta = Meta.loading;
     this._list = getInitialCollectionModel();
+    const endpoint = params ? `/orgs/${params.organizationName}/repos?per_page=${params.per_page}&page=${params.page}` : `/users/octocat/repos`
     const response = await this._apiStore.request<RepoItemApi[]>({
       method: HTTPMethod.GET,
-      endpoint: `/orgs/${params.organizationName}/repos?per_page=${params.per_page}&page=${params.page}`,
+      endpoint: endpoint,
       data: {},
       headers: {},
     });
