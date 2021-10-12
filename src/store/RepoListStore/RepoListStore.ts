@@ -9,6 +9,7 @@ import {
   observable,
   runInAction,
 } from "mobx";
+import {GetOrganizationReposListParams} from "../GitHubStore/types";
 
 type PrivateFields = "_value" | "_page" | "_repoList";
 
@@ -29,6 +30,7 @@ export default class RepoListStore implements ILocalStore {
       repoList: computed,
       loadRepos: action,
     });
+    this.loadRepos(true);
   }
 
   get value(): string {
@@ -56,16 +58,20 @@ export default class RepoListStore implements ILocalStore {
   }
 
   loadRepos(isValueUpdated: boolean) {
-    if (isValueUpdated) {
+    const getParams = () : GetOrganizationReposListParams | null => {
       if (this._value === "") {
-        return;
-      } else this._page = 1;
-    } else this._page++;
-    let NewOrganizationReposListParams = {
-      organizationName: this._value,
-      per_page: this._perPage,
-      page: this._page,
-    };
+        return null;
+      }
+      else return {
+        organizationName: this._value,
+        per_page: this._perPage,
+        page: this._page,
+      };
+    }
+
+    if (isValueUpdated) this._page = 1;
+    else this._page++;
+    let NewOrganizationReposListParams = getParams();
     runInAction(() => {
       this._gitHubStore
         .getOrganizationReposList(NewOrganizationReposListParams)
